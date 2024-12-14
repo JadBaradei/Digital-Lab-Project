@@ -1,0 +1,137 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk_50Mhz'
+Slack : -3.750
+TNS   : -321.024
+
+Type  : Slow 1200mV 85C Model Setup 'LCD_module:ready_to_play|state_valid_breaker'
+Slack : -3.564
+TNS   : -25.018
+
+Type  : Slow 1200mV 85C Model Setup 'STATE_Manager:comb_3|state[0]'
+Slack : -0.179
+TNS   : -0.179
+
+Type  : Slow 1200mV 85C Model Hold 'STATE_Manager:comb_3|state[0]'
+Slack : -2.520
+TNS   : -4.172
+
+Type  : Slow 1200mV 85C Model Hold 'LCD_module:ready_to_play|state_valid_breaker'
+Slack : -1.738
+TNS   : -7.658
+
+Type  : Slow 1200mV 85C Model Hold 'clk_50Mhz'
+Slack : -0.582
+TNS   : -2.133
+
+Type  : Slow 1200mV 85C Model Recovery 'clk_50Mhz'
+Slack : -0.558
+TNS   : -3.278
+
+Type  : Slow 1200mV 85C Model Removal 'clk_50Mhz'
+Slack : 0.619
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk_50Mhz'
+Slack : -3.000
+TNS   : -163.625
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'LCD_module:ready_to_play|state_valid_breaker'
+Slack : 0.420
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'STATE_Manager:comb_3|state[0]'
+Slack : 0.460
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'clk_50Mhz'
+Slack : -3.372
+TNS   : -281.882
+
+Type  : Slow 1200mV 0C Model Setup 'LCD_module:ready_to_play|state_valid_breaker'
+Slack : -3.317
+TNS   : -23.421
+
+Type  : Slow 1200mV 0C Model Setup 'STATE_Manager:comb_3|state[0]'
+Slack : -0.164
+TNS   : -0.164
+
+Type  : Slow 1200mV 0C Model Hold 'STATE_Manager:comb_3|state[0]'
+Slack : -2.222
+TNS   : -3.442
+
+Type  : Slow 1200mV 0C Model Hold 'LCD_module:ready_to_play|state_valid_breaker'
+Slack : -1.435
+TNS   : -6.604
+
+Type  : Slow 1200mV 0C Model Hold 'clk_50Mhz'
+Slack : -0.499
+TNS   : -1.650
+
+Type  : Slow 1200mV 0C Model Recovery 'clk_50Mhz'
+Slack : -0.396
+TNS   : -1.486
+
+Type  : Slow 1200mV 0C Model Removal 'clk_50Mhz'
+Slack : 0.562
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk_50Mhz'
+Slack : -3.000
+TNS   : -163.625
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'LCD_module:ready_to_play|state_valid_breaker'
+Slack : 0.413
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'STATE_Manager:comb_3|state[0]'
+Slack : 0.435
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'LCD_module:ready_to_play|state_valid_breaker'
+Slack : -1.394
+TNS   : -9.100
+
+Type  : Fast 1200mV 0C Model Setup 'clk_50Mhz'
+Slack : -1.323
+TNS   : -98.144
+
+Type  : Fast 1200mV 0C Model Setup 'STATE_Manager:comb_3|state[0]'
+Slack : 0.286
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'STATE_Manager:comb_3|state[0]'
+Slack : -1.488
+TNS   : -2.789
+
+Type  : Fast 1200mV 0C Model Hold 'LCD_module:ready_to_play|state_valid_breaker'
+Slack : -1.253
+TNS   : -5.951
+
+Type  : Fast 1200mV 0C Model Hold 'clk_50Mhz'
+Slack : -0.534
+TNS   : -4.496
+
+Type  : Fast 1200mV 0C Model Recovery 'clk_50Mhz'
+Slack : 0.216
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'clk_50Mhz'
+Slack : 0.296
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk_50Mhz'
+Slack : -3.000
+TNS   : -135.913
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'LCD_module:ready_to_play|state_valid_breaker'
+Slack : 0.284
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'STATE_Manager:comb_3|state[0]'
+Slack : 0.429
+TNS   : 0.000
+
+------------------------------------------------------------

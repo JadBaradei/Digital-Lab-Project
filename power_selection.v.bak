@@ -1,0 +1,35 @@
+module power_selection (
+    input [1:0] switch,    // Two switches for player 1's power selection
+    output reg [6:0] seg,      // 7-segment display output (active-low)
+    output reg [3:0] power // Power output to control the 7-segment display
+);
+
+
+    always @(*) begin
+        case (switch)
+            2'b01: begin
+                power = 4'd1;  // Invisibility -> Display 1
+            end
+            2'b10: begin
+                power = 4'd2;  // Flexibility -> Display 2
+            end
+            2'b11: begin
+                power = 4'd3;  // Camouflage -> Display 3
+            end
+            default: begin
+                power = 4'd0;  // Default case (e.g., if no switches are active)
+            end
+        endcase
+    end
+
+    // 7-segment display mapping for digits 0-3
+    always @(*) begin
+        case (power)
+            4'd1: seg = 7'b1111110; // '1'
+            4'd2: seg = 7'b1101101; // '2'
+            4'd3: seg = 7'b1111001; // '3'
+            default: seg = 7'b1111111; // Default (no power selected)
+        endcase
+    end
+
+endmodule

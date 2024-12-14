@@ -1,0 +1,49 @@
+module top_module (
+    input clk,           // Main clock
+    input rst_n,         // Active-low reset
+    input [3:0] gray_in, // Gray code input
+    output [3:0] binary_out, // Binary output
+    output [6:0] seg_out, // 7-segment output
+    output [7:0] lcd_data_out, // LCD data output
+    output lcd_rw,       // LCD Read/Write
+    output lcd_en,       // LCD Enable
+    output lcd_rs        // LCD Register Select
+);
+    wire clk_4hz;
+    wire [3:0] bin_value;
+    wire [6:0] segment_value;
+
+    // Instantiate clock divider
+    clock_devider clk_div (
+        .clk_in(clk),
+        .clk_out(clk_4hz)
+    );
+
+    // Instantiate Gray code to binary converter
+    gray_to_binary gray_to_bin (
+        .gray_code(gray_in),
+        .binary_code(bin_value)
+    );
+
+    // Instantiate binary to BCD to 7-segment converter
+    binary_7segment bin_to_seg (
+        .x(bin_value),
+        .y(segment_value)
+    );
+
+    // Instantiate LCD module
+    LCD_module lcd_ctrl (
+        .clk(clk),
+        .rst_n(clk_4hz),
+        .gray_in(gray_in),
+        .seg_in(segment_value),
+        .data_out(lcd_data_out),
+        .rw(lcd_rw),
+        .en(lcd_en),
+        .rs(lcd_rs)
+    );
+	 
+
+    assign binary_out = bin_value;
+    assign seg_out = segment_value;
+endmodule
