@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sat Dec 07 22:32:57 2024
+Analysis & Synthesis Status : Successful - Sun Dec 15 22:04:50 2024
 Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
 Revision Name : FinalProject
 Top-level Entity Name : TOP_Module
 Family : Cyclone IV E
-Total logic elements : 435
-    Total combinational functions : 430
-    Dedicated logic registers : 125
-Total registers : 125
-Total pins : 37
+Total logic elements : 678
+    Total combinational functions : 653
+    Dedicated logic registers : 270
+Total registers : 270
+Total pins : 45
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

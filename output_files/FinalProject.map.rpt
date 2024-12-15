@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FinalProject
-Sat Dec 07 22:32:57 2024
+Sun Dec 15 22:04:50 2024
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -15,14 +15,19 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |TOP_Module|LCD_module:ready_to_play|mLCD_ST
   9. State Machine - |TOP_Module|LCD_module:ready_to_play|LCD_Controller:u0|ST
- 10. User-Specified and Inferred Latches
- 11. Registers Removed During Synthesis
- 12. General Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Parameter Settings for User Entity Instance: LCD_module:ready_to_play
- 15. Parameter Settings for User Entity Instance: LCD_module:ready_to_play|LCD_Controller:u0
- 16. Elapsed Time Per Partition
- 17. Analysis & Synthesis Messages
+ 10. State Machine - |TOP_Module|STATE_Manager:comb_3|IR_RECEIVER:read_ir|state
+ 11. User-Specified and Inferred Latches
+ 12. Registers Removed During Synthesis
+ 13. Removed Registers Triggering Further Register Optimizations
+ 14. General Register Statistics
+ 15. Inverted Register Statistics
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Parameter Settings for User Entity Instance: STATE_Manager:comb_3|IR_RECEIVER:read_ir
+ 18. Parameter Settings for User Entity Instance: LCD_module:ready_to_play
+ 19. Parameter Settings for User Entity Instance: LCD_module:ready_to_play|LCD_Controller:u0
+ 20. Port Connectivity Checks: "STATE_Manager:comb_3|IR_RECEIVER:read_ir"
+ 21. Elapsed Time Per Partition
+ 22. Analysis & Synthesis Messages
 
 
 
@@ -48,16 +53,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Dec 07 22:32:57 2024           ;
+; Analysis & Synthesis Status        ; Successful - Sun Dec 15 22:04:50 2024           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; FinalProject                                    ;
 ; Top-level Entity Name              ; TOP_Module                                      ;
 ; Family                             ; Cyclone IV E                                    ;
-; Total logic elements               ; 435                                             ;
-;     Total combinational functions  ; 430                                             ;
-;     Dedicated logic registers      ; 125                                             ;
-; Total registers                    ; 125                                             ;
-; Total pins                         ; 37                                              ;
+; Total logic elements               ; 678                                             ;
+;     Total combinational functions  ; 653                                             ;
+;     Dedicated logic registers      ; 270                                             ;
+; Total registers                    ; 270                                             ;
+; Total pins                         ; 45                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -163,18 +168,21 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                          ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                            ; Library ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------------+---------+
-; TOP_Module.v                     ; yes             ; User Verilog HDL File  ; C:/Users/Anthony/Desktop/FinalProject/TOP_Module.v      ;         ;
-; clock_devider.v                  ; yes             ; User Verilog HDL File  ; C:/Users/Anthony/Desktop/FinalProject/clock_devider.v   ;         ;
-; LCD_Controller.v                 ; yes             ; User Verilog HDL File  ; C:/Users/Anthony/Desktop/FinalProject/LCD_Controller.v  ;         ;
-; LCD_module.v                     ; yes             ; User Verilog HDL File  ; C:/Users/Anthony/Desktop/FinalProject/LCD_module.v      ;         ;
-; STATE_Manager.v                  ; yes             ; User Verilog HDL File  ; C:/Users/Anthony/Desktop/FinalProject/STATE_Manager.v   ;         ;
-; power_selection.v                ; yes             ; User Verilog HDL File  ; C:/Users/Anthony/Desktop/FinalProject/power_selection.v ;         ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                  ; Library ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------+---------+
+; IR_RECEIVER.v                    ; yes             ; User Verilog HDL File  ; C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/IR_RECEIVER.v     ;         ;
+; TOP_Module.v                     ; yes             ; User Verilog HDL File  ; C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/TOP_Module.v      ;         ;
+; clock_devider.v                  ; yes             ; User Verilog HDL File  ; C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/clock_devider.v   ;         ;
+; LCD_Controller.v                 ; yes             ; User Verilog HDL File  ; C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/LCD_Controller.v  ;         ;
+; LCD_module.v                     ; yes             ; User Verilog HDL File  ; C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/LCD_module.v      ;         ;
+; STATE_Manager.v                  ; yes             ; User Verilog HDL File  ; C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/STATE_Manager.v   ;         ;
+; power_selection.v                ; yes             ; User Verilog HDL File  ; C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/power_selection.v ;         ;
+; COUNTDOWN_SEG.v                  ; yes             ; User Verilog HDL File  ; C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/COUNTDOWN_SEG.v   ;         ;
+; DISPLAY_SEG.v                    ; yes             ; User Verilog HDL File  ; C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/DISPLAY_SEG.v     ;         ;
++----------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------+---------+
 
 
 +---------------------------------------------------------------+
@@ -182,43 +190,46 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-----------------+
 ; Resource                                    ; Usage           ;
 +---------------------------------------------+-----------------+
-; Estimated Total logic elements              ; 435             ;
+; Estimated Total logic elements              ; 678             ;
 ;                                             ;                 ;
-; Total combinational functions               ; 430             ;
+; Total combinational functions               ; 653             ;
 ; Logic element usage by number of LUT inputs ;                 ;
-;     -- 4 input functions                    ; 232             ;
-;     -- 3 input functions                    ; 50              ;
-;     -- <=2 input functions                  ; 148             ;
+;     -- 4 input functions                    ; 332             ;
+;     -- 3 input functions                    ; 54              ;
+;     -- <=2 input functions                  ; 267             ;
 ;                                             ;                 ;
 ; Logic elements by mode                      ;                 ;
-;     -- normal mode                          ; 346             ;
-;     -- arithmetic mode                      ; 84              ;
+;     -- normal mode                          ; 488             ;
+;     -- arithmetic mode                      ; 165             ;
 ;                                             ;                 ;
-; Total registers                             ; 125             ;
-;     -- Dedicated logic registers            ; 125             ;
+; Total registers                             ; 270             ;
+;     -- Dedicated logic registers            ; 270             ;
 ;     -- I/O registers                        ; 0               ;
 ;                                             ;                 ;
-; I/O pins                                    ; 37              ;
+; I/O pins                                    ; 45              ;
 ; Embedded Multiplier 9-bit elements          ; 0               ;
 ; Maximum fan-out node                        ; clk_50Mhz~input ;
-; Maximum fan-out                             ; 125             ;
-; Total fan-out                               ; 1822            ;
-; Average fan-out                             ; 2.90            ;
+; Maximum fan-out                             ; 270             ;
+; Total fan-out                               ; 3001            ;
+; Average fan-out                             ; 2.96            ;
 +---------------------------------------------+-----------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                        ;
-+----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------+--------------+
-; Compilation Hierarchy Node             ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                    ; Library Name ;
-+----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------+--------------+
-; |TOP_Module                            ; 430 (0)           ; 125 (0)      ; 0           ; 0            ; 0       ; 0         ; 37   ; 0            ; |TOP_Module                                            ; work         ;
-;    |LCD_module:ready_to_play|          ; 305 (284)         ; 59 (46)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_Module|LCD_module:ready_to_play                   ; work         ;
-;       |LCD_Controller:u0|              ; 21 (21)           ; 13 (13)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_Module|LCD_module:ready_to_play|LCD_Controller:u0 ; work         ;
-;    |STATE_Manager:comb_3|              ; 66 (66)           ; 35 (35)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_Module|STATE_Manager:comb_3                       ; work         ;
-;    |clock_devider:clk_div|             ; 54 (54)           ; 31 (31)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_Module|clock_devider:clk_div                      ; work         ;
-;    |power_selection:select_your_power| ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_Module|power_selection:select_your_power          ; work         ;
-+----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                              ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node             ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                          ; Library Name ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+--------------+
+; |TOP_Module                            ; 653 (0)           ; 270 (0)      ; 0           ; 0            ; 0       ; 0         ; 45   ; 0            ; |TOP_Module                                                  ; work         ;
+;    |DISPLAY_SEG:display_countdown|     ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_Module|DISPLAY_SEG:display_countdown                    ; work         ;
+;    |LCD_module:ready_to_play|          ; 306 (285)         ; 59 (46)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_Module|LCD_module:ready_to_play                         ; work         ;
+;       |LCD_Controller:u0|              ; 21 (21)           ; 13 (13)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_Module|LCD_module:ready_to_play|LCD_Controller:u0       ; work         ;
+;    |STATE_Manager:comb_3|              ; 277 (95)          ; 170 (37)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_Module|STATE_Manager:comb_3                             ; work         ;
+;       |COUNTDOWN_SEG:counting_down|    ; 57 (57)           ; 34 (34)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_Module|STATE_Manager:comb_3|COUNTDOWN_SEG:counting_down ; work         ;
+;       |IR_RECEIVER:read_ir|            ; 125 (125)         ; 99 (99)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_Module|STATE_Manager:comb_3|IR_RECEIVER:read_ir         ; work         ;
+;    |clock_devider:clk_div|             ; 54 (54)           ; 31 (31)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_Module|clock_devider:clk_div                            ; work         ;
+;    |power_selection:select_your_power| ; 9 (9)             ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_Module|power_selection:select_your_power                ; work         ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -248,47 +259,68 @@ Encoding Type:  One-Hot
 +-------+-------+-------+-------+-------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                                   ;
-+-----------------------------------------------------+----------------------------------------+------------------------+
-; Latch Name                                          ; Latch Enable Signal                    ; Free of Timing Hazards ;
-+-----------------------------------------------------+----------------------------------------+------------------------+
-; power_selection:select_your_power|oHEX_D2[0]        ; power_selection:select_your_power|Mux3 ; yes                    ;
-; power_selection:select_your_power|oHEX_D2[2]        ; power_selection:select_your_power|Mux3 ; yes                    ;
-; power_selection:select_your_power|oHEX_D2[3]        ; power_selection:select_your_power|Mux3 ; yes                    ;
-; power_selection:select_your_power|oHEX_D2[4]        ; power_selection:select_your_power|Mux3 ; yes                    ;
-; power_selection:select_your_power|oHEX_D2[6]        ; power_selection:select_your_power|Mux3 ; yes                    ;
-; LCD_module:ready_to_play|LUT_DATA[0]                ; LCD_module:ready_to_play|LUT_DATA[1]   ; yes                    ;
-; LCD_module:ready_to_play|LUT_DATA[1]                ; LCD_module:ready_to_play|LUT_DATA[1]   ; yes                    ;
-; LCD_module:ready_to_play|LUT_DATA[2]                ; LCD_module:ready_to_play|LUT_DATA[1]   ; yes                    ;
-; LCD_module:ready_to_play|LUT_DATA[3]                ; LCD_module:ready_to_play|LUT_DATA[1]   ; yes                    ;
-; LCD_module:ready_to_play|LUT_DATA[4]                ; LCD_module:ready_to_play|LUT_DATA[1]   ; yes                    ;
-; LCD_module:ready_to_play|LUT_DATA[5]                ; LCD_module:ready_to_play|LUT_DATA[1]   ; yes                    ;
-; LCD_module:ready_to_play|LUT_DATA[6]                ; LCD_module:ready_to_play|LUT_DATA[1]   ; yes                    ;
-; LCD_module:ready_to_play|LUT_DATA[7]                ; LCD_module:ready_to_play|LUT_DATA[1]   ; yes                    ;
-; LCD_module:ready_to_play|LUT_DATA[8]                ; LCD_module:ready_to_play|LUT_DATA[1]   ; yes                    ;
-; Number of user-specified and inferred latches = 14  ;                                        ;                        ;
-+-----------------------------------------------------+----------------------------------------+------------------------+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------+
+; State Machine - |TOP_Module|STATE_Manager:comb_3|IR_RECEIVER:read_ir|state ;
++----------------+------------+----------------+-----------------------------+
+; Name           ; state.IDLE ; state.DATAREAD ; state.GUIDANCE              ;
++----------------+------------+----------------+-----------------------------+
+; state.IDLE     ; 0          ; 0              ; 0                           ;
+; state.GUIDANCE ; 1          ; 0              ; 1                           ;
+; state.DATAREAD ; 1          ; 1              ; 0                           ;
++----------------+------------+----------------+-----------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                                ;
++----------------------------------------------------+--------------------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal                  ; Free of Timing Hazards ;
++----------------------------------------------------+--------------------------------------+------------------------+
+; LCD_module:ready_to_play|LUT_DATA[0]               ; LCD_module:ready_to_play|LUT_DATA[1] ; yes                    ;
+; LCD_module:ready_to_play|LUT_DATA[1]               ; LCD_module:ready_to_play|LUT_DATA[1] ; yes                    ;
+; LCD_module:ready_to_play|LUT_DATA[2]               ; LCD_module:ready_to_play|LUT_DATA[1] ; yes                    ;
+; LCD_module:ready_to_play|LUT_DATA[3]               ; LCD_module:ready_to_play|LUT_DATA[1] ; yes                    ;
+; LCD_module:ready_to_play|LUT_DATA[4]               ; LCD_module:ready_to_play|LUT_DATA[1] ; yes                    ;
+; LCD_module:ready_to_play|LUT_DATA[5]               ; LCD_module:ready_to_play|LUT_DATA[1] ; yes                    ;
+; LCD_module:ready_to_play|LUT_DATA[6]               ; LCD_module:ready_to_play|LUT_DATA[1] ; yes                    ;
+; LCD_module:ready_to_play|LUT_DATA[7]               ; LCD_module:ready_to_play|LUT_DATA[1] ; yes                    ;
+; LCD_module:ready_to_play|LUT_DATA[8]               ; LCD_module:ready_to_play|LUT_DATA[1] ; yes                    ;
+; Number of user-specified and inferred latches = 9  ;                                      ;                        ;
++----------------------------------------------------+--------------------------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                       ;
-+-------------------------------------------------+----------------------------------------+
-; Register name                                   ; Reason for Removal                     ;
-+-------------------------------------------------+----------------------------------------+
-; STATE_Manager:comb_3|LEDR                       ; Stuck at GND due to stuck port data_in ;
-; LCD_module:ready_to_play|mLCD_ST~6              ; Lost fanout                            ;
-; LCD_module:ready_to_play|mLCD_ST~7              ; Lost fanout                            ;
-; LCD_module:ready_to_play|mLCD_ST~8              ; Lost fanout                            ;
-; LCD_module:ready_to_play|mLCD_ST~9              ; Lost fanout                            ;
-; LCD_module:ready_to_play|mLCD_ST~10             ; Lost fanout                            ;
-; LCD_module:ready_to_play|mLCD_ST~11             ; Lost fanout                            ;
-; LCD_module:ready_to_play|LCD_Controller:u0|ST~8 ; Lost fanout                            ;
-; LCD_module:ready_to_play|LCD_Controller:u0|ST~9 ; Lost fanout                            ;
-; STATE_Manager:comb_3|state[3]                   ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 10          ;                                        ;
-+-------------------------------------------------+----------------------------------------+
++------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                               ;
++-------------------------------------------------------+----------------------------------------------------------+
+; Register name                                         ; Reason for Removal                                       ;
++-------------------------------------------------------+----------------------------------------------------------+
+; power_selection:select_your_power|oHEX_D2[1]          ; Stuck at GND due to stuck port data_in                   ;
+; power_selection:select_your_power|oHEX_D1[1]          ; Stuck at GND due to stuck port data_in                   ;
+; STATE_Manager:comb_3|COUNTDOWN_SEG:counting_down|flag ; Stuck at VCC due to stuck port data_in                   ;
+; STATE_Manager:comb_3|chosen_code[0..7]                ; Lost fanout                                              ;
+; power_selection:select_your_power|oHEX_D2[3]          ; Merged with power_selection:select_your_power|oHEX_D2[0] ;
+; power_selection:select_your_power|oHEX_D1[3]          ; Merged with power_selection:select_your_power|oHEX_D1[0] ;
+; LCD_module:ready_to_play|mLCD_ST~6                    ; Lost fanout                                              ;
+; LCD_module:ready_to_play|mLCD_ST~7                    ; Lost fanout                                              ;
+; LCD_module:ready_to_play|mLCD_ST~8                    ; Lost fanout                                              ;
+; LCD_module:ready_to_play|mLCD_ST~9                    ; Lost fanout                                              ;
+; LCD_module:ready_to_play|mLCD_ST~10                   ; Lost fanout                                              ;
+; LCD_module:ready_to_play|mLCD_ST~11                   ; Lost fanout                                              ;
+; LCD_module:ready_to_play|LCD_Controller:u0|ST~8       ; Lost fanout                                              ;
+; LCD_module:ready_to_play|LCD_Controller:u0|ST~9       ; Lost fanout                                              ;
+; Total Number of Removed Registers = 21                ;                                                          ;
++-------------------------------------------------------+----------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                   ;
++-------------------------------------------------------+---------------------------+---------------------------------------------------------------------------+
+; Register name                                         ; Reason for Removal        ; Registers Removed due to This Register                                    ;
++-------------------------------------------------------+---------------------------+---------------------------------------------------------------------------+
+; STATE_Manager:comb_3|COUNTDOWN_SEG:counting_down|flag ; Stuck at VCC              ; STATE_Manager:comb_3|chosen_code[7], STATE_Manager:comb_3|chosen_code[6], ;
+;                                                       ; due to stuck port data_in ; STATE_Manager:comb_3|chosen_code[5], STATE_Manager:comb_3|chosen_code[4]  ;
++-------------------------------------------------------+---------------------------+---------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -296,32 +328,64 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 125   ;
-; Number of registers using Synchronous Clear  ; 65    ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 13    ;
+; Total registers                              ; 270   ;
+; Number of registers using Synchronous Clear  ; 115   ;
+; Number of registers using Synchronous Load   ; 2     ;
+; Number of registers using Asynchronous Clear ; 104   ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 75    ;
+; Number of registers using Clock Enable       ; 156   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
-; 4:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |TOP_Module|LCD_module:ready_to_play|mLCD_DATA[2]            ;
-; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_Module|LCD_module:ready_to_play|LUT_INDEX[5]            ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_Module|LCD_module:ready_to_play|LCD_Controller:u0|oDone ;
-; 16:1               ; 8 bits    ; 80 LEs        ; 40 LEs               ; 40 LEs                 ; Yes        ; |TOP_Module|LCD_module:ready_to_play|state_valid_camouflage  ;
-; 5:1                ; 18 bits   ; 54 LEs        ; 18 LEs               ; 36 LEs                 ; Yes        ; |TOP_Module|LCD_module:ready_to_play|mDLY[14]                ;
-; 15:1               ; 30 bits   ; 300 LEs       ; 30 LEs               ; 270 LEs                ; Yes        ; |TOP_Module|STATE_Manager:comb_3|counter[0]                  ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_Module|LCD_module:ready_to_play|mLCD_ST                 ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; No         ; |TOP_Module|LCD_module:ready_to_play|mLCD_ST                 ;
-; 42:1               ; 2 bits    ; 56 LEs        ; 14 LEs               ; 42 LEs                 ; No         ; |TOP_Module|LCD_module:ready_to_play|LUT_DATA[7]             ;
-; 156:1              ; 5 bits    ; 520 LEs       ; 455 LEs              ; 65 LEs                 ; No         ; |TOP_Module|LCD_module:ready_to_play|LUT_DATA[1]             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+; Inverted Register Statistics                                                ;
++-------------------------------------------------------------------+---------+
+; Inverted Register                                                 ; Fan out ;
++-------------------------------------------------------------------+---------+
+; STATE_Manager:comb_3|COUNTDOWN_SEG:counting_down|countdown_val[1] ; 4       ;
+; STATE_Manager:comb_3|COUNTDOWN_SEG:counting_down|countdown_val[3] ; 3       ;
+; Total number of inverted registers = 2                            ;         ;
++-------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------+
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_Module|STATE_Manager:comb_3|IR_RECEIVER:read_ir|bitcount[1] ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |TOP_Module|LCD_module:ready_to_play|mLCD_DATA[3]                ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |TOP_Module|LCD_module:ready_to_play|LUT_INDEX[5]                ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_Module|LCD_module:ready_to_play|LCD_Controller:u0|mStart    ;
+; 16:1               ; 8 bits    ; 80 LEs        ; 40 LEs               ; 40 LEs                 ; Yes        ; |TOP_Module|LCD_module:ready_to_play|state_valid_camouflage      ;
+; 16:1               ; 5 bits    ; 50 LEs        ; 10 LEs               ; 40 LEs                 ; Yes        ; |TOP_Module|power_selection:select_your_power|oHEX_D1[5]         ;
+; 16:1               ; 5 bits    ; 50 LEs        ; 10 LEs               ; 40 LEs                 ; Yes        ; |TOP_Module|power_selection:select_your_power|oHEX_D2[6]         ;
+; 6:1                ; 30 bits   ; 120 LEs       ; 30 LEs               ; 90 LEs                 ; Yes        ; |TOP_Module|STATE_Manager:comb_3|counter[17]                     ;
+; 5:1                ; 18 bits   ; 54 LEs        ; 18 LEs               ; 36 LEs                 ; Yes        ; |TOP_Module|LCD_module:ready_to_play|mDLY[0]                     ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |TOP_Module|LCD_module:ready_to_play|mLCD_ST                     ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |TOP_Module|STATE_Manager:comb_3|IR_RECEIVER:read_ir|Selector1   ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 8 LEs                ; 2 LEs                  ; No         ; |TOP_Module|LCD_module:ready_to_play|mLCD_ST                     ;
+; 42:1               ; 2 bits    ; 56 LEs        ; 14 LEs               ; 42 LEs                 ; No         ; |TOP_Module|LCD_module:ready_to_play|LUT_DATA[7]                 ;
+; 156:1              ; 5 bits    ; 520 LEs       ; 455 LEs              ; 65 LEs                 ; No         ; |TOP_Module|LCD_module:ready_to_play|LUT_DATA[0]                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: STATE_Manager:comb_3|IR_RECEIVER:read_ir ;
++-------------------+--------+----------------------------------------------------------+
+; Parameter Name    ; Value  ; Type                                                     ;
++-------------------+--------+----------------------------------------------------------+
+; IDLE              ; 00     ; Unsigned Binary                                          ;
+; GUIDANCE          ; 01     ; Unsigned Binary                                          ;
+; DATAREAD          ; 10     ; Unsigned Binary                                          ;
+; IDLE_HIGH_DUR     ; 262143 ; Signed Integer                                           ;
+; GUIDE_LOW_DUR     ; 230000 ; Signed Integer                                           ;
+; GUIDE_HIGH_DUR    ; 210000 ; Signed Integer                                           ;
+; DATA_HIGH_DUR     ; 41500  ; Signed Integer                                           ;
+; BIT_AVAILABLE_DUR ; 20000  ; Signed Integer                                           ;
++-------------------+--------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-----------------------------------------------------------------------+
@@ -348,6 +412,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "STATE_Manager:comb_3|IR_RECEIVER:read_ir"                                                                         ;
++---------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                                                  ;
++---------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; oDATA[31..24] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; oDATA[15..0]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; oDATA_READY   ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
 +-------------------------------+
 ; Elapsed Time Per Partition    ;
 +----------------+--------------+
@@ -363,7 +438,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sat Dec 07 22:32:55 2024
+    Info: Processing started: Sun Dec 15 22:04:47 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FinalProject -c FinalProject
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Warning (10238): Verilog Module Declaration warning at DE2_115_IR.v(22): ignored anonymous port(s) indicated by duplicate or dangling comma(s) in the port list for module "DE2_115_IR"
@@ -371,7 +446,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file de2_115
     Info (12023): Found entity 1: DE2_115_IR
 Info (12021): Found 1 design units, including 1 entities, in source file ir_receiver.v
     Info (12023): Found entity 1: IR_RECEIVER
-Warning (10275): Verilog HDL Module Instantiation warning at TOP_Module.v(41): ignored dangling comma in List of Port Connections
 Info (12021): Found 1 design units, including 1 entities, in source file top_module.v
     Info (12023): Found entity 1: TOP_Module
 Info (12021): Found 1 design units, including 1 entities, in source file clock_devider.v
@@ -384,17 +458,28 @@ Info (12021): Found 1 design units, including 1 entities, in source file state_m
     Info (12023): Found entity 1: STATE_Manager
 Info (12021): Found 1 design units, including 1 entities, in source file power_selection.v
     Info (12023): Found entity 1: power_selection
-Critical Warning (10846): Verilog HDL Instantiation warning at TOP_Module.v(30): instance has no name
+Info (12021): Found 1 design units, including 1 entities, in source file countdown_seg.v
+    Info (12023): Found entity 1: COUNTDOWN_SEG
+Info (12021): Found 1 design units, including 1 entities, in source file display_seg.v
+    Info (12023): Found entity 1: DISPLAY_SEG
+Critical Warning (10846): Verilog HDL Instantiation warning at TOP_Module.v(37): instance has no name
 Info (12127): Elaborating entity "TOP_Module" for the top level hierarchy
 Info (12128): Elaborating entity "clock_devider" for hierarchy "clock_devider:clk_div"
 Warning (10230): Verilog HDL assignment warning at clock_devider.v(15): truncated value with size 32 to match size of target (30)
 Warning (10230): Verilog HDL assignment warning at clock_devider.v(21): truncated value with size 32 to match size of target (30)
 Info (12128): Elaborating entity "STATE_Manager" for hierarchy "STATE_Manager:comb_3"
-Warning (10230): Verilog HDL assignment warning at STATE_Manager.v(58): truncated value with size 32 to match size of target (30)
-Warning (10230): Verilog HDL assignment warning at STATE_Manager.v(78): truncated value with size 32 to match size of target (30)
+Warning (10230): Verilog HDL assignment warning at STATE_Manager.v(72): truncated value with size 32 to match size of target (30)
 Warning (10230): Verilog HDL assignment warning at STATE_Manager.v(92): truncated value with size 32 to match size of target (30)
-Warning (10230): Verilog HDL assignment warning at STATE_Manager.v(106): truncated value with size 32 to match size of target (30)
-Warning (10230): Verilog HDL assignment warning at STATE_Manager.v(120): truncated value with size 32 to match size of target (30)
+Warning (10230): Verilog HDL assignment warning at STATE_Manager.v(104): truncated value with size 32 to match size of target (30)
+Warning (10230): Verilog HDL assignment warning at STATE_Manager.v(116): truncated value with size 32 to match size of target (30)
+Warning (10230): Verilog HDL assignment warning at STATE_Manager.v(128): truncated value with size 32 to match size of target (30)
+Warning (10230): Verilog HDL assignment warning at STATE_Manager.v(140): truncated value with size 32 to match size of target (30)
+Warning (10230): Verilog HDL assignment warning at STATE_Manager.v(152): truncated value with size 32 to match size of target (30)
+Warning (10230): Verilog HDL assignment warning at STATE_Manager.v(164): truncated value with size 32 to match size of target (30)
+Info (12128): Elaborating entity "IR_RECEIVER" for hierarchy "STATE_Manager:comb_3|IR_RECEIVER:read_ir"
+Info (12128): Elaborating entity "COUNTDOWN_SEG" for hierarchy "STATE_Manager:comb_3|COUNTDOWN_SEG:counting_down"
+Warning (10230): Verilog HDL assignment warning at COUNTDOWN_SEG.v(22): truncated value with size 32 to match size of target (4)
+Warning (10230): Verilog HDL assignment warning at COUNTDOWN_SEG.v(30): truncated value with size 32 to match size of target (26)
 Info (12128): Elaborating entity "LCD_module" for hierarchy "LCD_module:ready_to_play"
 Warning (10230): Verilog HDL assignment warning at LCD_module.v(161): truncated value with size 32 to match size of target (18)
 Warning (10230): Verilog HDL assignment warning at LCD_module.v(169): truncated value with size 32 to match size of target (6)
@@ -427,34 +512,8 @@ Info (10041): Inferred latch for "LUT_DATA[8]" at LCD_module.v(178)
 Info (12128): Elaborating entity "LCD_Controller" for hierarchy "LCD_module:ready_to_play|LCD_Controller:u0"
 Warning (10230): Verilog HDL assignment warning at LCD_Controller.v(87): truncated value with size 32 to match size of target (5)
 Info (12128): Elaborating entity "power_selection" for hierarchy "power_selection:select_your_power"
-Warning (10235): Verilog HDL Always Construct warning at power_selection.v(32): variable "player1_entered" is read inside the Always Construct but isn't in the Always Construct's Event Control
-Warning (10240): Verilog HDL Always Construct warning at power_selection.v(31): inferring latch(es) for variable "oHEX_D2", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at power_selection.v(31): inferring latch(es) for variable "oHEX_D1", which holds its previous value in one or more paths through the always construct
-Warning (10240): Verilog HDL Always Construct warning at power_selection.v(31): inferring latch(es) for variable "player1_entered", which holds its previous value in one or more paths through the always construct
-Info (10041): Inferred latch for "player1_entered" at power_selection.v(31)
-Info (10041): Inferred latch for "oHEX_D1[0]" at power_selection.v(31)
-Info (10041): Inferred latch for "oHEX_D1[1]" at power_selection.v(31)
-Info (10041): Inferred latch for "oHEX_D1[2]" at power_selection.v(31)
-Info (10041): Inferred latch for "oHEX_D1[3]" at power_selection.v(31)
-Info (10041): Inferred latch for "oHEX_D1[4]" at power_selection.v(31)
-Info (10041): Inferred latch for "oHEX_D1[5]" at power_selection.v(31)
-Info (10041): Inferred latch for "oHEX_D1[6]" at power_selection.v(31)
-Info (10041): Inferred latch for "oHEX_D2[0]" at power_selection.v(31)
-Info (10041): Inferred latch for "oHEX_D2[1]" at power_selection.v(31)
-Info (10041): Inferred latch for "oHEX_D2[2]" at power_selection.v(31)
-Info (10041): Inferred latch for "oHEX_D2[3]" at power_selection.v(31)
-Info (10041): Inferred latch for "oHEX_D2[4]" at power_selection.v(31)
-Info (10041): Inferred latch for "oHEX_D2[5]" at power_selection.v(31)
-Info (10041): Inferred latch for "oHEX_D2[6]" at power_selection.v(31)
-Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
-    Info (13026): Duplicate LATCH primitive "power_selection:select_your_power|oHEX_D2[3]" merged with LATCH primitive "power_selection:select_your_power|oHEX_D2[0]"
-    Info (13026): Duplicate LATCH primitive "power_selection:select_your_power|oHEX_D2[6]" merged with LATCH primitive "power_selection:select_your_power|oHEX_D2[0]"
-Warning (13012): Latch power_selection:select_your_power|oHEX_D2[0] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal STATE_Manager:comb_3|state[0]
-Warning (13012): Latch power_selection:select_your_power|oHEX_D2[2] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal STATE_Manager:comb_3|state[0]
-Warning (13012): Latch power_selection:select_your_power|oHEX_D2[4] has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal STATE_Manager:comb_3|state[0]
+Info (12128): Elaborating entity "DISPLAY_SEG" for hierarchy "DISPLAY_SEG:display_countdown"
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13012): Latch LCD_module:ready_to_play|LUT_DATA[0] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal LCD_module:ready_to_play|state_valid_test
 Warning (13012): Latch LCD_module:ready_to_play|LUT_DATA[1] has unsafe behavior
@@ -475,34 +534,24 @@ Warning (13012): Latch LCD_module:ready_to_play|LUT_DATA[8] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal LCD_module:ready_to_play|state_valid_test
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "lcd_rw" is stuck at GND
-    Warning (13410): Pin "HEX0[0]" is stuck at GND
     Warning (13410): Pin "HEX0[1]" is stuck at GND
-    Warning (13410): Pin "HEX0[2]" is stuck at GND
-    Warning (13410): Pin "HEX0[3]" is stuck at GND
-    Warning (13410): Pin "HEX0[4]" is stuck at GND
-    Warning (13410): Pin "HEX0[5]" is stuck at GND
-    Warning (13410): Pin "HEX0[6]" is stuck at VCC
     Warning (13410): Pin "HEX1[1]" is stuck at GND
-    Warning (13410): Pin "HEX1[5]" is stuck at VCC
-    Warning (13410): Pin "LEDR" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 8 registers lost all their fanouts during netlist optimizations.
+Info (17049): 16 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 5 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "reset"
-    Warning (15610): No output dependent on input pin "SW[5]"
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[6]"
     Warning (15610): No output dependent on input pin "SW[7]"
     Warning (15610): No output dependent on input pin "SW[8]"
-Info (21057): Implemented 476 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 11 input pins
-    Info (21059): Implemented 26 output pins
-    Info (21061): Implemented 439 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 77 warnings
-    Info: Peak virtual memory: 4590 megabytes
-    Info: Processing ended: Sat Dec 07 22:32:57 2024
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+Info (21057): Implemented 731 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 12 input pins
+    Info (21059): Implemented 33 output pins
+    Info (21061): Implemented 686 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 62 warnings
+    Info: Peak virtual memory: 4592 megabytes
+    Info: Processing ended: Sun Dec 15 22:04:50 2024
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
 
 

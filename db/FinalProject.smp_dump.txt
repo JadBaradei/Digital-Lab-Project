@@ -12,3 +12,9 @@ ST.00 0 0 0 0
 ST.01 0 0 1 1 
 ST.10 0 1 0 1 
 ST.11 1 0 0 1 
+
+State Machine - |TOP_Module|STATE_Manager:comb_3|IR_RECEIVER:read_ir|state
+Name state.IDLE state.DATAREAD state.GUIDANCE 
+state.IDLE 0 0 0 
+state.GUIDANCE 1 0 1 
+state.DATAREAD 1 1 0 
