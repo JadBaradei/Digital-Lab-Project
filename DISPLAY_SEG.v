@@ -16,7 +16,7 @@ module DISPLAY_SEG (
             4'd7: segments = 7'b1111000; // 7
             4'd8: segments = 7'b0000000; // 8
             4'd9: segments = 7'b0010000; // 9
-            default: segments = 7'b0010000; // Blank or off if outside 0-9
+            default: segments = 7'b1000000; // Blank or off if outside 0-9
         endcase
     end
 

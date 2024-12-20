@@ -1,0 +1,29 @@
+module TRANSFORM_COLOR(
+	input [3:0] counter,
+	output reg [7:0] r,
+	output reg [7:0] g,
+	output reg [7:0] b
+);
+
+always @(*) begin
+	case(counter)
+		4'b0000: begin
+			r <= 8'b11111111;
+			g <= 8'b0;
+			b <= 8'b0;
+		end
+      4'b0001: begin
+			r <= 8'b0;
+			g <= 8'b11111111;
+			b <= 8'b0;
+		end
+      
+      default: begin
+			r <= 8'b0;
+			g <= 8'b0;
+			b <= 8'b0;
+		end
+	endcase
+end
+
+endmodule

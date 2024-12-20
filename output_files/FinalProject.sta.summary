@@ -2,100 +2,160 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'clk_50Mhz'
-Slack : -3.770
-TNS   : -602.434
-
 Type  : Slow 1200mV 85C Model Setup 'LCD_module:ready_to_play|state_valid_breaker'
-Slack : -2.896
-TNS   : -20.973
+Slack : -4.993
+TNS   : -35.765
+
+Type  : Slow 1200mV 85C Model Setup 'clk_50Mhz'
+Slack : -2.097
+TNS   : -16.477
+
+Type  : Slow 1200mV 85C Model Setup 'vga|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 16.885
+TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Hold 'LCD_module:ready_to_play|state_valid_breaker'
-Slack : -2.527
-TNS   : -12.752
+Slack : -1.149
+TNS   : -5.161
 
 Type  : Slow 1200mV 85C Model Hold 'clk_50Mhz'
-Slack : 0.385
+Slack : 0.401
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'vga|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.431
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'vga|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 16.027
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Recovery 'clk_50Mhz'
-Slack : -0.548
-TNS   : -2.974
+Slack : 17.206
+TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Removal 'clk_50Mhz'
-Slack : 0.614
+Slack : 2.047
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'vga|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 2.136
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'LCD_module:ready_to_play|state_valid_breaker'
+Slack : 0.391
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk_50Mhz'
-Slack : -3.000
-TNS   : -349.950
-
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'LCD_module:ready_to_play|state_valid_breaker'
-Slack : 0.441
+Slack : 9.749
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Setup 'clk_50Mhz'
-Slack : -3.345
-TNS   : -523.639
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'vga|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 19.709
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Setup 'LCD_module:ready_to_play|state_valid_breaker'
-Slack : -2.707
-TNS   : -19.606
+Slack : -4.552
+TNS   : -32.773
+
+Type  : Slow 1200mV 0C Model Setup 'clk_50Mhz'
+Slack : -1.782
+TNS   : -13.640
+
+Type  : Slow 1200mV 0C Model Setup 'vga|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 17.193
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'LCD_module:ready_to_play|state_valid_breaker'
-Slack : -2.270
-TNS   : -11.171
+Slack : -1.012
+TNS   : -3.987
 
 Type  : Slow 1200mV 0C Model Hold 'clk_50Mhz'
-Slack : 0.338
+Slack : 0.353
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'vga|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.390
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'vga|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 16.369
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Recovery 'clk_50Mhz'
-Slack : -0.389
-TNS   : -1.227
+Slack : 17.403
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Removal 'clk_50Mhz'
-Slack : 0.556
+Slack : 1.855
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'vga|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 1.903
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'LCD_module:ready_to_play|state_valid_breaker'
+Slack : 0.444
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk_50Mhz'
-Slack : -3.000
-TNS   : -349.950
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'LCD_module:ready_to_play|state_valid_breaker'
-Slack : 0.371
+Slack : 9.713
 TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Setup 'clk_50Mhz'
-Slack : -1.409
-TNS   : -171.490
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'vga|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 19.710
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Setup 'LCD_module:ready_to_play|state_valid_breaker'
-Slack : -1.117
-TNS   : -6.945
+Slack : -2.055
+TNS   : -14.214
+
+Type  : Fast 1200mV 0C Model Setup 'clk_50Mhz'
+Slack : -0.948
+TNS   : -7.452
+
+Type  : Fast 1200mV 0C Model Setup 'vga|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 18.403
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'LCD_module:ready_to_play|state_valid_breaker'
-Slack : -1.454
-TNS   : -7.887
+Slack : -0.897
+TNS   : -5.275
 
 Type  : Fast 1200mV 0C Model Hold 'clk_50Mhz'
-Slack : 0.173
+Slack : 0.180
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'vga|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.193
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'vga|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 17.912
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Recovery 'clk_50Mhz'
-Slack : 0.222
+Slack : 18.522
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Removal 'clk_50Mhz'
-Slack : 0.291
+Slack : 0.990
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'vga|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 1.023
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'LCD_module:ready_to_play|state_valid_breaker'
+Slack : 0.261
 TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk_50Mhz'
-Slack : -3.000
-TNS   : -290.941
+Slack : 9.410
+TNS   : 0.000
 
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'LCD_module:ready_to_play|state_valid_breaker'
-Slack : 0.300
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'vga|p1|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 19.773
 TNS   : 0.000
 
 ------------------------------------------------------------

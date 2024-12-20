@@ -3,10 +3,13 @@ module STATE_Manager(
 	input clk_slow,
 	input reset,
 	input ir_input,
-	output reg LEDR,
+	input PW,
+	output reg [17:0] LEDR,
+	output reg [7:0] LEDG,
 	input [8:0] SW,
 	output reg [3:0] state,
 	output [3:0] current_digit
+	
 );
 
 localparam S0 = 4'b0000; // Initial State
@@ -19,7 +22,7 @@ localparam S6 = 4'b0110; // camouflage_right_seg
 localparam S7 = 4'b0111; // invisibility_left_seg
 localparam S8 = 4'b1000; // flexibility_left_seg
 localparam S9 = 4'b1001; // camouflage_left_seg
-localparam S10 = 4'b1010; // Lock coder choose password
+localparam S10 = 4'b1010; // Lock coder choose lock
 localparam S11 = 4'b1011; // Lock breaker try to break (countdown)
 
 localparam S13 = 4'b1101; // Lock coder wins
@@ -28,10 +31,11 @@ localparam S15 = 4'b1111; // play again?
 
 reg picked_first_power;
 reg picked_second_power;
-wire coundown_finished;
-reg [7:0] chosen_code;
+wire countdown_finished;
+reg [7:0] chosen_code_coder;
 wire [31:0] ir_output;
 reg [29:0] counter;
+
 
 initial begin
     state = S0;
@@ -40,9 +44,12 @@ end
 always@(posedge clk) begin
 	case (state)
 		S0 : begin
-			LEDR <= 1'b0;
+			LEDR[17:0] <= {18{1'b0}};
+			LEDG[7:0] <= {8{1'b0}};
 			picked_first_power <= 0;
 			picked_second_power <= 0;
+			chosen_code_coder <= 0;
+			
 			if(SW[0])
 				state <= S1;
 			end	
@@ -170,24 +177,52 @@ always@(posedge clk) begin
 				if (ir_output[23:16] == 0)
 					state <= S14;
 				else begin
-					chosen_code <= ir_output[23:16];
+					chosen_code_coder <= ir_output[23:16];
 					state <= S11;
 				end
 			end
 		end
 		S11 : begin 
-			//Read IR if code is found
-			if ( (coundown_finished) || (chosen_code != ir_output[23:16]) )
+			if(SW[6]) begin 
+				if(chosen_code_coder != ir_output[23:16]) begin 
+					state <= S13;
+				end else if(chosen_code_coder == ir_output[23:16]) begin 
+					state <= S14;
+				end
+			end
+			if(countdown_finished == 1) begin 
 				state <= S13;
-			else if (chosen_code == ir_output[23:16])
-				state <= S14;
+			end 
 		end
+		S13 : begin 
+			//Lock Coder wins 
+			// Turn on all Read LEDS
+			LEDR[17:0] <= {18{1'b1}};
+			if (counter == 250000000)begin
+				counter <= 0;
+				state <= S15;
+			end else 
+				counter <= counter + 1; 
+		end 
 		S14: begin
-			LEDR <= 1'b1;
+			// Lock Breaker wins 
+			// Turn on all green LEDS 
+			LEDG[7:0] <= {8{1'b1}};
+			if (counter == 250000000)begin
+				counter <= 0;
+				state <= S15;
+			end else 
+				counter <= counter + 1;
+			
 		end
+		S15 : begin 
+				if(PW == 1'b0) 
+					state <= S0;
+		end 
 	endcase
-	
 end
+
+
 
 // Call IR reader
 IR_RECEIVER read_ir(
@@ -201,7 +236,7 @@ IR_RECEIVER read_ir(
 COUNTDOWN_SEG counting_down(
 	.clk(clk),        // 50 MHz clock
    .state(state),      // State input
-   .flag(coundown_finished),       // Flag set to 1 when countdown reaches 0
+   .flag(countdown_finished),       // Flag set to 1 when countdown reaches 0
    .current_digit(current_digit) 
 );
 

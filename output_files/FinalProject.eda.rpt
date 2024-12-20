@@ -1,6 +1,6 @@
 EDA Netlist Writer report for FinalProject
-Sun Dec 15 22:05:13 2024
-Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Fri Dec 20 23:52:38 2024
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
 
 
 ---------------------
@@ -36,7 +36,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Sun Dec 15 22:05:13 2024 ;
+; EDA Netlist Writer Status ; Successful - Fri Dec 20 23:52:38 2024 ;
 ; Revision Name             ; FinalProject                          ;
 ; Top-level Entity Name     ; TOP_Module                            ;
 ; Family                    ; Cyclone IV E                          ;
@@ -66,20 +66,20 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------------------+------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------+
-; Simulation Generated Files                                                                                              ;
-+-------------------------------------------------------------------------------------------------------------------------+
-; Generated Files                                                                                                         ;
-+-------------------------------------------------------------------------------------------------------------------------+
-; C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/simulation/modelsim/FinalProject_7_1200mv_85c_slow.vho      ;
-; C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/simulation/modelsim/FinalProject_7_1200mv_0c_slow.vho       ;
-; C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/simulation/modelsim/FinalProject_min_1200mv_0c_fast.vho     ;
-; C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/simulation/modelsim/FinalProject.vho                        ;
-; C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/simulation/modelsim/FinalProject_7_1200mv_85c_vhd_slow.sdo  ;
-; C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/simulation/modelsim/FinalProject_7_1200mv_0c_vhd_slow.sdo   ;
-; C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/simulation/modelsim/FinalProject_min_1200mv_0c_vhd_fast.sdo ;
-; C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/simulation/modelsim/FinalProject_vhd.sdo                    ;
-+-------------------------------------------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Simulation Generated Files                                                                                                                 ;
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Generated Files                                                                                                                            ;
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; C:/Users/jadba/Documents/University/Fall 2024/Digital Systems Lab/FinalProject/simulation/modelsim/FinalProject_7_1200mv_85c_slow.vho      ;
+; C:/Users/jadba/Documents/University/Fall 2024/Digital Systems Lab/FinalProject/simulation/modelsim/FinalProject_7_1200mv_0c_slow.vho       ;
+; C:/Users/jadba/Documents/University/Fall 2024/Digital Systems Lab/FinalProject/simulation/modelsim/FinalProject_min_1200mv_0c_fast.vho     ;
+; C:/Users/jadba/Documents/University/Fall 2024/Digital Systems Lab/FinalProject/simulation/modelsim/FinalProject.vho                        ;
+; C:/Users/jadba/Documents/University/Fall 2024/Digital Systems Lab/FinalProject/simulation/modelsim/FinalProject_7_1200mv_85c_vhd_slow.sdo  ;
+; C:/Users/jadba/Documents/University/Fall 2024/Digital Systems Lab/FinalProject/simulation/modelsim/FinalProject_7_1200mv_0c_vhd_slow.sdo   ;
+; C:/Users/jadba/Documents/University/Fall 2024/Digital Systems Lab/FinalProject/simulation/modelsim/FinalProject_min_1200mv_0c_vhd_fast.sdo ;
+; C:/Users/jadba/Documents/University/Fall 2024/Digital Systems Lab/FinalProject/simulation/modelsim/FinalProject_vhd.sdo                    ;
++--------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------+
@@ -87,20 +87,20 @@ applicable agreement for further details.
 +-----------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit EDA Netlist Writer
-    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sun Dec 15 22:05:12 2024
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Fri Dec 20 23:52:37 2024
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off FinalProject -c FinalProject
-Info (204019): Generated file FinalProject_7_1200mv_85c_slow.vho in folder "C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file FinalProject_7_1200mv_0c_slow.vho in folder "C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file FinalProject_min_1200mv_0c_fast.vho in folder "C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file FinalProject.vho in folder "C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file FinalProject_7_1200mv_85c_vhd_slow.sdo in folder "C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file FinalProject_7_1200mv_0c_vhd_slow.sdo in folder "C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file FinalProject_min_1200mv_0c_vhd_fast.sdo in folder "C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/simulation/modelsim/" for EDA simulation tool
-Info (204019): Generated file FinalProject_vhd.sdo in folder "C:/Users/Anthony/Desktop/FinalProject-original/FinalProject/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file FinalProject_7_1200mv_85c_slow.vho in folder "C:/Users/jadba/Documents/University/Fall 2024/Digital Systems Lab/FinalProject/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file FinalProject_7_1200mv_0c_slow.vho in folder "C:/Users/jadba/Documents/University/Fall 2024/Digital Systems Lab/FinalProject/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file FinalProject_min_1200mv_0c_fast.vho in folder "C:/Users/jadba/Documents/University/Fall 2024/Digital Systems Lab/FinalProject/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file FinalProject.vho in folder "C:/Users/jadba/Documents/University/Fall 2024/Digital Systems Lab/FinalProject/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file FinalProject_7_1200mv_85c_vhd_slow.sdo in folder "C:/Users/jadba/Documents/University/Fall 2024/Digital Systems Lab/FinalProject/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file FinalProject_7_1200mv_0c_vhd_slow.sdo in folder "C:/Users/jadba/Documents/University/Fall 2024/Digital Systems Lab/FinalProject/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file FinalProject_min_1200mv_0c_vhd_fast.sdo in folder "C:/Users/jadba/Documents/University/Fall 2024/Digital Systems Lab/FinalProject/simulation/modelsim/" for EDA simulation tool
+Info (204019): Generated file FinalProject_vhd.sdo in folder "C:/Users/jadba/Documents/University/Fall 2024/Digital Systems Lab/FinalProject/simulation/modelsim/" for EDA simulation tool
 Info: Quartus II 64-Bit EDA Netlist Writer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4533 megabytes
-    Info: Processing ended: Sun Dec 15 22:05:13 2024
+    Info: Peak virtual memory: 4579 megabytes
+    Info: Processing ended: Fri Dec 20 23:52:38 2024
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 

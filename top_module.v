@@ -3,20 +3,33 @@ module TOP_Module(
 	input reset,
 	input ir_input,
 	input [8:0] SW,
-	output LEDR,
+	input PW,
+	output [17:0] LEDR,
+	output [7:0] LEDG,
 	output [7:0] lcd_data, // LCD data output
 	output lcd_rw, // 1 bit for read write
 	output lcd_en, // 1 bit for enable
 	output lcd_rs, // 1 bit for command
 	output [6:0]	HEX0,
 	output [6:0]	HEX1,
-	output [6:0] 	HEX2
+	output [6:0] 	HEX2,
+	
+	//VGA
+	output VGA_CLK,
+	output VGA_BLANK_N,
+	output VGA_HS,
+	output VGA_VS,
+	output [7:0] VGA_R,
+	output [7:0] VGA_G,
+	output [7:0] VGA_B
+	
 );
 
 wire clk_4hz;
 wire clk_slow;
 wire [3:0] state;
 wire [3:0] current_digit;
+
 
 clock_devider clk_div (
     .clk_in(clk_50Mhz),
@@ -29,9 +42,11 @@ STATE_Manager(
 	.clk_slow(clk_slow),
 	.reset(reset),
 	.LEDR(LEDR),
+	.LEDG(LEDG),
 	.ir_input(ir_input),
 	.SW(SW),
 	.state(state),
+	.PW(PW),
 	.current_digit(current_digit)
 
 );
@@ -58,6 +73,19 @@ DISPLAY_SEG display_countdown(
 	.digit(current_digit),
 	.segments(HEX2)
 );
+
+DE2_115_Default vga (
+	.CLOCK_50(clk_50Mhz),
+	.state(state),
+	.VGA_R(VGA_R),
+	.VGA_G(VGA_G),
+	.VGA_B(VGA_B),
+	.VGA_BLANK_N(VGA_BLANK_N),
+	.VGA_CLK(VGA_CLK),
+	.VGA_HS(VGA_HS),
+	.VGA_VS(VGA_VS)
+);
+
 
 
 

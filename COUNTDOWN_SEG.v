@@ -10,34 +10,50 @@ module COUNTDOWN_SEG (
 
     // Registers to hold the 1-second timer and the current countdown value
     reg [25:0] second_counter = 0;  // Enough bits to count to 50 million
-    reg [3:0]  countdown_val  = 10; // Start from 10
+    reg [3:0]  countdown_val = 10; // Start from 10
 
     always @(posedge clk) begin
-        if (state == 4'b1011) begin
+			flag <= 0;
+        
+		  
+		  
+		  
+		  
+		  
+		  if (state == 4'b1011) begin
+				
             // Counting active only when state == 4'b1011
             if (second_counter == ONE_SEC_COUNT) begin
                 second_counter <= 0; // Reset second counter
-
+					 
                 if (countdown_val > 0) begin
                     countdown_val <= countdown_val - 1;
                 end
 
                 // If we just decremented to 0, set the flag
-                if (countdown_val == 1) begin
+                if (countdown_val == 0) begin
                     flag <= 1;
                 end
             end else begin
                 second_counter <= second_counter + 1;
             end
+				current_digit <= countdown_val;
         end else begin
             // Not in the correct state, do not advance
-            second_counter <= second_counter;
-            countdown_val <= countdown_val;
+           
+			  second_counter <= 0;
+            countdown_val <= 10;
             flag <= flag;
+				current_digit <= 0;
+				
         end
-
+			
         // Update current_digit to reflect the current countdown value
-        current_digit <= countdown_val;
+        
+		   
     end
+	 
+
+	
 
 endmodule

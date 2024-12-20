@@ -1,0 +1,120 @@
+module vga_controller(iRST_n,
+                      iVGA_CLK,
+							 
+							 color_r1,
+							 color_g1,
+							 color_b1,
+							 
+							 color_r2,
+							 color_g2,
+							 color_b2,
+							 
+							 color_r3,
+							 color_g3,
+							 color_b3,
+							 
+                      oBLANK_n,
+                      oHS,
+                      oVS,
+                      b_data,
+                      g_data,
+                      r_data);
+input iRST_n;
+input iVGA_CLK;
+input [7:0] color_r1;
+input [7:0] color_g1;
+input [7:0] color_b1;
+
+input [7:0] color_r2;
+input [7:0] color_g2;
+input [7:0] color_b2;
+
+input [7:0] color_r3;
+input [7:0] color_g3;
+input [7:0] color_b3;
+
+output reg oBLANK_n;
+output reg oHS;
+output reg oVS;
+output reg [7:0] b_data;
+output reg [7:0] g_data;  
+output reg [7:0] r_data;                        
+
+///////// ////            
+         
+reg [18:0] ADDR;
+reg [23:0] bgr_data;
+wire cBLANK_n,cHS,cVS,rst;
+
+///////// //// 
+
+assign rst = ~iRST_n;
+
+video_sync_generator LTM_ins (.vga_clk(iVGA_CLK),
+                              .reset(rst),
+                              .blank_n(cBLANK_n),
+                              .HS(cHS),
+                              .VS(cVS));
+////
+////Addresss generator
+always@(posedge iVGA_CLK,negedge iRST_n)
+begin
+  if (!iRST_n)
+     ADDR<=19'd0;
+  else if (cHS==1'b0 && cVS==1'b0) begin
+     ADDR<=19'd0;
+  end
+  else if (cBLANK_n==1'b1)
+     ADDR<=ADDR+1;
+end
+//////////////////////////
+
+wire first_part;
+wire second_part;
+wire third_part;
+assign first_part = ADDR < (19'd102400);
+assign second_part = (ADDR < (19'd204800)) && (ADDR > (19'd102400));
+assign third_part = ADDR > (19'd204800);
+
+always @(ADDR) begin
+	if (first_part) begin
+	b_data <= color_b1;
+	g_data <= color_g1;
+	r_data <= color_r1;
+	end else if (second_part) begin
+	b_data <= color_b2;
+	g_data <= color_g2;
+	r_data <= color_r2;
+	end else if (third_part) begin
+	b_data <= color_b3;
+	g_data <= color_g3;
+	r_data <= color_r3;
+	end else begin
+	b_data <= 8'b0;
+	g_data <= 8'b0;
+	r_data <= 8'b0;
+	end
+end
+
+
+
+
+//assign b_data = (first_part) ? color_b1 : 8'b0;
+//assign g_data = (first_part) ? color_g1 : 8'b0;
+//assign r_data = (first_part) ? color_r1 : 8'b0;
+
+
+
+///////////////////
+//////Delay the iHD, iVD,iDEN for one clock cycle;
+always@(negedge iVGA_CLK)
+begin
+  oHS<=cHS;
+  oVS<=cVS;
+  oBLANK_n<=cBLANK_n;
+end
+
+endmodule
+ 	
+
+
